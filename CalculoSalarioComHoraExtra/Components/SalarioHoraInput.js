@@ -1,11 +1,12 @@
 import { Text, View, StyleSheet, TextInput, Button } from 'react-native';
 import { useState } from 'react'
-import SalarioFinal from './SalarioFinalLogica';
 
-export default function salarioHora() {
+export default function SalarioHoraInput() {
 
     const [salario, setSalario] = useState(null)
     const [hora, setHora] = useState(null)
+    const [salarioFinal, setSalarioFinal] = useState(null)
+    
 
     return (
         <View>
@@ -19,12 +20,23 @@ export default function salarioHora() {
                 value={hora}
                 onChangeText={setHora}
             />
-        <Button 
-        title='Calcular Hora Extra'
-        onPress={() =>{
-            <Text>{SalarioFinal}</Text>
-        }}
-        />
+            <Button
+                title='Calcular Hora Extra'
+                onPress={() => {
+                   let horaNormal = salario / 160
+                   let salFinal = 0
+
+                    if(hora <= 160) {
+                        salFinal = horaNormal * hora
+                    } else { 
+                        salFinal = +salario + (hora - 160) * 18.75
+                    }
+
+                    setSalarioFinal(salFinal)
+                }}
+            />
+
+            <Text>{salarioFinal}</Text>
         </View>
 
     )
