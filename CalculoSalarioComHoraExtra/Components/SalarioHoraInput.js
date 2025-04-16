@@ -9,14 +9,16 @@ export default function SalarioHoraInput() {
     
 
     return (
-        <View>
-            <Text>Digite o salario base:</Text>
-            <TextInput
+        <View style={styles.container}>
+            <Text style={styles.fontes}>Digite o salario base:</Text>
+            <TextInput style={styles.input}
+                placeholder="Digite o Salário"
                 value={salario}
                 onChangeText={setSalario}
             />
-            <Text>Digite Horas trabalhadas</Text>
-            <TextInput
+            <Text style={styles.fontes}>Digite Horas trabalhadas</Text>
+            <TextInput style={styles.input}
+                placeholder="Digite as Horas"
                 value={hora}
                 onChangeText={setHora}
             />
@@ -36,8 +38,36 @@ export default function SalarioHoraInput() {
                 }}
             />
 
-            <Text>{salarioFinal}</Text>
+            <Text style={styles.resultado}>Horas Trabalhadas: {hora} Horas</Text>
+            <Text style={styles.resultado}>Salario Base: R$ {salario}</Text>
+            <Text style={styles.resultado}>Total: R$ {salarioFinal}</Text>
         </View>
 
     )
-}
+} 
+
+const styles = StyleSheet.create({
+    container: {
+        alignItems: 'center',
+        marginTop: 10,
+        backgroundColor: '#ccc',
+        padding: 25
+      },
+      input:{
+        borderWidth: 1,
+        width: 250,
+        padding: 11,
+        marginBottom: 10,
+        fontSize: 15,
+      },
+      fontes: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#black',
+      },
+      resultado: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: 'black'
+      },
+    });

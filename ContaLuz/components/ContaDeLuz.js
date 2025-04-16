@@ -34,13 +34,13 @@ const TarifaLuz = () => {
           if (bandeira == "verde") {
             valorConta = consumo * verde
           }
-          else if (bandeira === "amarela") {
+          else if (bandeira == "amarela") {
             valorConta = consumo * amarela
           }
-          else if (bandeira === "vermelha1") {
+          else if (bandeira == "vermelha1") {
             valorConta = consumo * vermelha1
           }
-          else if (bandeira === "vermelha2") {
+          else if (bandeira == "vermelha2") {
             valorConta = consumo * vermelha2
           } else {
             alert("Por favor, informe uma bandeira válida!!")
@@ -48,9 +48,9 @@ const TarifaLuz = () => {
          setTotal(valorConta)
         }}
       />
-      <Text style={styles.resultado}>Bandeira: {bandeira}</Text>
-      <Text style={styles.resultado}>Consumo: {consumo} KWh</Text>
-      <Text style={styles.resultado}>Total: R$ {total}</Text>
+      <Text style={styles.resposta}>Bandeira: {bandeira}</Text>
+      <Text style={styles.resposta}>Consumo: {consumo} KWh</Text>
+      <Text style={styles.resposta}>Total: R$ {total}</Text>
     </View>
 
 
@@ -74,7 +74,7 @@ container: {
     fontWeight: 'bold',
     color: '#black',
   },
-  resultado: {
+  resposta: {
     fontSize: 15,
     fontWeight: 'bold',
     color: 'black'
